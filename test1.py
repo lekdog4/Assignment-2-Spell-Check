@@ -6,9 +6,9 @@ import requests
 
 
 class MyTestCase(unittest.TestCase):
-     username = "Test1"
-     password = "test"
-     phone = "6305556666"
+     username = "Name123"
+     password = "Password123$"
+     phone = "7032353030"
 
 
     #Test Case Verifies Register Form returned by verifying
@@ -19,7 +19,7 @@ class MyTestCase(unittest.TestCase):
             soup = BeautifulSoup(r.content, "html.parser")
             csrfToken = soup.find('input', attrs={'name': 'csrf_token'})['value']
 
-            r = s.post(url, data = {'username':'Test1','password':'Test1','phone':'6305555555', 'csrf_token':csrfToken})
+            r = s.post(url, data = {'username':'Name123','password':'Password123$','phone':'7032353030', 'csrf_token':csrfToken})
             self.assertIsNotNone(soup.find(id='uname'))
             self.assertIsNotNone(soup.find(id='pword'))
             self.assertIsNotNone(soup.find(id='2fa'))
@@ -34,7 +34,7 @@ class MyTestCase(unittest.TestCase):
             soup = BeautifulSoup(r.content, "html.parser")
             csrfToken = soup.find('input', attrs={'name': 'csrf_token'})['value']
 
-            r = s.post(url, data = {'username':'Test1','password':'Test1','phone':'6305555555', 'csrf_token':csrfToken})
+            r = s.post(url, data = {'username':'Name123','password':'Password123$','phone':'6305555555', 'csrf_token':csrfToken})
             self.assertIsNotNone(soup.find(id='uname'))
             self.assertIsNotNone(soup.find(id='pword'))
             self.assertIsNotNone(soup.find(id='2fa'))
@@ -55,7 +55,7 @@ class MyTestCase(unittest.TestCase):
             soup = BeautifulSoup(r.content, "html.parser")
             csrfToken = soup.find('input', attrs={'name': 'csrf_token'})['value']
 
-            r = s.post(url, data = {'inputtext':'Take a sad sogn and make it betta', 'csrf_token':csrfToken})
+            r = s.post(url, data = {'inputtext':'My naapme is hello world', 'csrf_token':csrfToken})
             
             soup = BeautifulSoup(r.content, "html.parser")
 
@@ -65,7 +65,7 @@ class MyTestCase(unittest.TestCase):
 
             textout = soup.find(id='textout')
             #self.assertIsNotNone(textout)
-            self.assertEqual("Take a sad sogn and make it betta", textout.get_text().strip())
+            self.assertEqual("My naapme is hello world", textout.get_text().strip())
 
 
 if __name__ == '__main__':
