@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+  </head>
+  <body>
+    <div class="container">
+        <ul>
+          <h2 align=left > Check Your Spelling </h2>
+        </ul>
+        <div class="col-sm-8">
+          <form method="POST" >
+            <div class="form-group">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <p id='inputtext'>
+              <label> Enter Text to Spell Check:    </label>
+              {{ form.inputtext }}
+              </p>
+             </div>
+            <button type="submit" class="btn form-control btn-default"> Submit </button>
+            <div class="form-group">
+                <ul>
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <br>
+                    <label align=left> You misspelled the following: </label>
+                    <br>
+                    <p id="misspelled">
+                    {{ misspelled }} 
+                    </p>
+                    <br>
+                    <label align=left > You Entered: </label>
+                    <br>
+                    <p id="textout">
+                    {{ textout }}
+                    </p>
+                </ul>
+            </div>
+           </form>
+        </div>
+      </div>
+    </div>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>

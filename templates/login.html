@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-12">
+</head>
+    <body>
+        <div class="container">
+            <ul>
+                <h2 align=left > Please Login for Spell Check </h2>
+            </ul>
+            <form method="POST" >
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <p id = 'uname' class= 'form-control form-control-lg' >
+                    {{form.username.label}} {{form.username}}
+                </p>
+                <p id = 'pword' class= 'form-control form-control-lg' >
+                    {{form.password.label}} {{form.password}}
+                </p>
+                <p id='2fa' class="form-control form-control-lg">
+                    {{ form.phone.label }} {{ form.phone }}
+                </p>
+                <button type="submit" class="btn form-control btn-default"> Login </button>
+                {% if result == "success" %}
+                        <div id="result" class=error><strong>{{ error }} Success </strong> </div>
+                {% else %}
+                    <div id="result" class=error><strong>{{ error }} Failure </strong> </div>
+                {% endif %}
+            </form>
+        </div>
+    </body>
+</html>
