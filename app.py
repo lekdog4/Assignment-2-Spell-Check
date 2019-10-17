@@ -29,7 +29,7 @@ debug = False
 dbLocation = 'sqlite:///users.db'
 bcrypt = Bcrypt()
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '5cf0b99fc6f2bbdae78ad43e297c0ae6'
+app.config['SECRET_KEY'] = '6hu789iud4556tgre34ggh6y9o022wws'
 
 # When writing your Web service, you must defend against common attacks against Web
 #services such as:
